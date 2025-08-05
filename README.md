@@ -1,5 +1,5 @@
 # nogodtosaveme
-Start with an accessory
+No one wants to save you
 <!DOCTYPE html>
 <html lang="en">
 <head>
