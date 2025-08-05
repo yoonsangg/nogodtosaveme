@@ -65,8 +65,8 @@ Start with an accessory
   <h1>no god to save me</h1>
   <p>a brand born from nothing — for those who save themselves.</p>
   <div class="contact">
-    <p>contact: <a href="mailto:your@email.com">your@email.com</a></p>
-    <p><a href="https://instagram.com/yourbrand" target="_blank">Instagram</a></p>
+    <p>contact: <a href="mailto:dbstkdfuf333@naver.com">dbstkdfuf333@naver.com</a></p>
+    <p><a href="https://instagram.com/no_god_to_save_me" target="_blank">Instagram</a></p>
   </div>
 </body>
 </html>
