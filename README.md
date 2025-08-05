@@ -1,5 +1,3 @@
-# nogodtosaveme
-No one wants to save you
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +15,7 @@ No one wants to save you
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       text-align: center;
     }
 
@@ -45,8 +43,10 @@ No one wants to save you
       text-decoration: none;
     }
 
-    a:hover {
+    a:hover,
+    a:focus {
       color: #fff;
+      outline: none;
     }
 
     @media (max-width: 768px) {
@@ -64,9 +64,10 @@ No one wants to save you
 <body>
   <h1>no god to save me</h1>
   <p>a brand born from nothing — for those who save themselves.</p>
+  
   <div class="contact">
     <p>contact: <a href="mailto:dbstkdfuf333@naver.com">dbstkdfuf333@naver.com</a></p>
-    <p><a href="https://instagram.com/no_god_to_save_me" target="_blank">Instagram</a></p>
+    <p><a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></p>
   </div>
 </body>
 </html>
