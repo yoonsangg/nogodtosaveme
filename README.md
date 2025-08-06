@@ -61,7 +61,7 @@
       top: 0; left: 0;
       width: 100vw; height: 100vh;
       pointer-events: none;
-      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOAAoH+DwADpwIDt7Lq3AAAAABJRUxBUUVOgg==');
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANgIAAADuBgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOAAoH+DwADpwIDt7Lq3AAAAABJRU5GOgg=='); /* 미세 조정 */
       background-blend-mode: overlay;
       filter: url(#noiseFilter);
       opacity: 0.03;
@@ -109,7 +109,7 @@
       background-size: cover; /* 텍스트 크기에 맞춰 질감 조정 */
       -webkit-background-clip: text; /* 텍스트 모양으로 배경 자르기 (WebKit 브라우저용) */
       background-clip: text; /* 텍스트 모양으로 배경 자르기 */
-      -webkit-text-fill-color: transparent; /* 텍스트 채우기 색상을 투명하게 (WebKit 브라우저용) */
+      -webkit-text-fill-color: transparent; /* 텍스트 채우기 색상을 투명하게 (WebKit 브록시) */
       text-fill-color: transparent; /* 텍스트 채우기 색상을 투명하게 */
       filter: drop-shadow(1px 1px 0 #d12e2e) drop-shadow(-1px -1px 0 #a0a0a0); /* 텍스트 그림자 효과 (glitch와 조화) */
     }
@@ -160,19 +160,49 @@
     }
 
     @keyframes glitchTop {
-      0% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
-      20% { clip: rect(0, 9999px, 10px, 0); transform: translate(-2px, -2px); }
-      40% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
-      60% { clip: rect(0, 9999px, 10px, 0); transform: translate(-2px, 2px); }
-      80%, 100% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
+      0% {
+        clip: rect(0, 9999px, 0, 0);
+        transform: translate(0);
+      }
+      20% {
+        clip: rect(0, 9999px, 10px, 0);
+        transform: translate(-2px, -2px);
+      }
+      40% {
+        clip: rect(0, 9999px, 0, 0);
+        transform: translate(0);
+      }
+      60% {
+        clip: rect(0, 9999px, 10px, 0);
+        transform: translate(-2px, 2px);
+      }
+      80%, 100% {
+        clip: rect(0, 9999px, 0, 0);
+        transform: translate(0);
+      }
     }
 
     @keyframes glitchBottom {
-      0% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
-      20% { clip: rect(10px, 9999px, 20px, 0); transform: translate(2px, 2px); }
-      40% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
-      60% { clip: rect(10px, 9999px, 20px, 0); transform: translate(2px, -2px); }
-      80%, 100% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
+      0% {
+        clip: rect(0, 9999px, 0, 0);
+        transform: translate(0);
+      }
+      20% {
+        clip: rect(10px, 9999px, 20px, 0);
+        transform: translate(2px, 2px);
+      }
+      40% {
+        clip: rect(0, 9999px, 0, 0);
+        transform: translate(0);
+      }
+      60% {
+        clip: rect(10px, 9999px, 20px, 0);
+        transform: translate(2px, -2px);
+      }
+      80%, 100% {
+        clip: rect(0, 9999px, 0, 0);
+        transform: translate(0);
+      }
     }
 
     p.tagline {
@@ -201,6 +231,37 @@
       color: #d12e2e;
     }
 
+    /* 아이템 페이지 이동 버튼 스타일 */
+    .shop-button {
+      position: fixed;
+      bottom: 25px; /* 하단에서부터의 거리 */
+      right: 25px; /* 우측에서부터의 거리 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 30px;
+      background-color: #000;
+      border: 2px solid #fff; /* 흰색 테두리 */
+      color: #fff;
+      font-family: 'Anton', sans-serif; /* 강렬한 폰트 사용 */
+      font-size: 1.2em;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* 은은한 흰색 그림자 */
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      z-index: 10; /* 다른 요소들 위에 보이도록 */
+      cursor: pointer;
+    }
+
+    .shop-button:hover {
+      background-color: #d12e2e; /* 호버 시 붉은색 배경 */
+      color: #fff;
+      border-color: #d12e2e; /* 호버 시 테두리 색상도 붉은색으로 */
+      box-shadow: 0 0 15px rgba(209, 46, 46, 0.6); /* 붉은색으로 그림자 강조 */
+    }
+
+    /* 모바일 반응형 조절 */
     @media (max-width: 768px) {
       h1 {
         font-size: 2.5em;
@@ -217,6 +278,13 @@
         margin-right: 0;
         margin-top: 2em;
       }
+
+      .shop-button {
+        bottom: 15px;
+        right: 15px;
+        padding: 10px 20px;
+        font-size: 1em;
+      }
     }
   </style>
 </head>
@@ -231,6 +299,9 @@
       <p><a href="https://instagram.com/no_god_to_save_me" target="_blank" rel="noopener noreferrer">Instagram</a></p>
     </div>
   </main>
+
+  <!-- 아이템 페이지 이동 버튼 -->
+  <a href="shop.html" class="shop-button">VIEW ITEMS</a>
 
   <!-- SVG 필터 정의 -->
   <svg style="position: absolute; width: 0; height: 0;">
