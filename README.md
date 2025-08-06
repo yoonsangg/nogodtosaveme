@@ -10,8 +10,11 @@
   <meta property="og:url" content="https://yourbrand.com" />
   <meta property="og:image" content="https://yourbrand.com/og-image.jpg" />
 
-  <!-- Google Font: Bebas Neue -->
+  <!-- Google Font: Anton (그로테스크하고 강렬한 느낌) -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <!-- Google Font: Bebas Neue (기존 유지, fallback이나 다른 텍스트에 사용) -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
 
   <style>
     /* === Reset & Base === */
@@ -29,7 +32,7 @@
       background-position: center center;
 
       color: #f0f0f0;
-      font-family: 'Bebas Neue', sans-serif;
+      font-family: 'Bebas Neue', sans-serif; /* 기본 폰트는 Bebas Neue 유지 (Anton은 제목에만) */
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -59,7 +62,7 @@
       top: 0; left: 0;
       width: 100vw; height: 100vh;
       pointer-events: none;
-      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOAAoH+DwADpwIDt7Lq3AAAAABJRU5ErkJggg==');
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOAAoH+DwADpwIDt7Lq3AAAAABJRUxBUUVOgg==');
       background-blend-mode: overlay;
       filter: url(#noiseFilter);
       opacity: 0.03;
@@ -90,16 +93,26 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* 글리치 효과 적용 h1 */
+    /* h1: Anton 폰트 적용 및 디스트로이드 텍스처 효과 */
     h1 {
-      position: relative;
+      font-family: 'Anton', sans-serif; /* 폰트 변경! */
       font-size: 4.5em;
       letter-spacing: 5px;
       margin-bottom: 0.4em;
-      font-weight: 700;
+      font-weight: 400; /* Anton은 보통 400 굵기만 지원합니다. */
       text-transform: uppercase;
-      color: #fff;
+      color: #fff; /* background-clip 때문에 투명해지지만 기본 색은 흰색 */
+      position: relative;
       animation: glitch 2s infinite;
+
+      /* 디스트로이드 질감 오버레이를 위한 속성 */
+      background: url('https://raw.githubusercontent.com/wrtn-community/wrtn/main/grunge-texture.png'); /* 거친 질감 이미지 */
+      background-size: cover; /* 텍스트 크기에 맞춰 질감 조정 */
+      -webkit-background-clip: text; /* 텍스트 모양으로 배경 자르기 (WebKit 브라우저용) */
+      background-clip: text; /* 텍스트 모양으로 배경 자르기 */
+      -webkit-text-fill-color: transparent; /* 텍스트 채우기 색상을 투명하게 (WebKit 브라우저용) */
+      text-fill-color: transparent; /* 텍스트 채우기 색상을 투명하게 */
+      filter: drop-shadow(1px 1px 0 #d12e2e) drop-shadow(-1px -1px 0 #a0a0a0); /* 텍스트 그림자 효과 (glitch와 조화) */
     }
 
     h1::before,
@@ -110,82 +123,57 @@
       width: 100%;
       overflow: hidden;
       clip: rect(0, 900px, 0, 0);
+      /* text-fill-color를 적용한 글씨체에 이펙트도 투명하게 보일 수 있으니,
+         글리치 복제본은 다시 흰색으로 채워줍니다. */
+      -webkit-text-fill-color: #fff;
+      text-fill-color: #fff;
+      filter: none; /* 드롭 쉐도우 중복 방지 */
     }
 
     h1::before {
       animation: glitchTop 2s infinite;
-      color: #f00;
+      color: #f00; /* 빨간색 글리치 효과 */
       z-index: -1;
     }
 
     h1::after {
       animation: glitchBottom 2s infinite;
-      color: #0ff;
+      color: #0ff; /* 청록색 글리치 효과 */
       z-index: -2;
     }
 
     @keyframes glitch {
       0% {
-        text-shadow: 2px 2px #d12e2e, -2px -2px #a0a0a0;
+        filter: drop-shadow(1px 1px 0 #d12e2e) drop-shadow(-1px -1px 0 #a0a0a0);
       }
       20% {
-        text-shadow: 2px -2px #d12e2e, -2px 2px #a0a0a0;
+        filter: drop-shadow(1px -1px 0 #d12e2e) drop-shadow(-1px 1px 0 #a0a0a0);
       }
       40% {
-        text-shadow: -2px 2px #d12e2e, 2px -2px #a0a0a0;
+        filter: drop-shadow(-1px 1px 0 #d12e2e) drop-shadow(1px -1px 0 #a0a0a0);
       }
       60% {
-        text-shadow: -2px -2px #d12e2e, 2px 2px #a0a0a0;
+        filter: drop-shadow(-1px -1px 0 #d12e2e) drop-shadow(1px 1px 0 #a0a0a0);
       }
       80%, 100% {
-        text-shadow: 2px 2px #d12e2e, -2px -2px #a0a0a0;
+        filter: drop-shadow(1px 1px 0 #d12e2e) drop-shadow(-1px -1px 0 #a0a0a0);
       }
     }
 
     @keyframes glitchTop {
-      0% {
-        clip: rect(0, 9999px, 0, 0);
-        transform: translate(0);
-      }
-      20% {
-        clip: rect(0, 9999px, 10px, 0);
-        transform: translate(-2px, -2px);
-      }
-      40% {
-        clip: rect(0, 9999px, 0, 0);
-        transform: translate(0);
-      }
-      60% {
-        clip: rect(0, 9999px, 10px, 0);
-        transform: translate(-2px, 2px);
-      }
-      80%, 100% {
-        clip: rect(0, 9999px, 0, 0);
-        transform: translate(0);
-      }
+      0% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
+      20% { clip: rect(0, 9999px, 10px, 0); transform: translate(-2px, -2px); }
+      40% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
+      60% { clip: rect(0, 9999px, 10px, 0); transform: translate(-2px, 2px); }
+      80%, 100% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
     }
 
     @keyframes glitchBottom {
-      0% {
-        clip: rect(0, 9999px, 0, 0);
-        transform: translate(0);
-      }
-      20% {
-        clip: rect(10px, 9999px, 20px, 0);
-        transform: translate(2px, 2px);
-      }
-      40% {
-        clip: rect(0, 9999px, 0, 0);
-        transform: translate(0);
-      }
-      60% {
-        clip: rect(10px, 9999px, 20px, 0);
-        transform: translate(2px, -2px);
-      }
-      80%, 100% {
-        clip: rect(0, 9999px, 0, 0);
-        transform: translate(0);
-      }
+      0% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
+      20% { clip: rect(10px, 9999px, 20px, 0); transform: translate(2px, 2px); }
+      40% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
+      60% { clip: rect(10px, 9999px, 20px, 0); transform: translate(2px, -2px); }
+      80%, 100% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
     }
 
     p.tagline {
