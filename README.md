@@ -19,11 +19,6 @@
       text-align: center;
     }
 
-    img.logo {
-      width: 120px;
-      margin-bottom: 1em;
-    }
-
     h1 {
       font-size: 3em;
       letter-spacing: 2px;
@@ -79,16 +74,13 @@
   </style>
 </head>
 <body>
-  <!-- 로고 이미지 삽입 -->
-  <img src="logo.png" alt="no god to save me logo" class="logo">
-  
   <!-- 메인 타이틀 -->
   <h1>no god to save me</h1>
 
-  <!-- 부제목 추가 -->
+  <!-- 부제목 -->
   <h2>Hope is a lie we tell ourselves</h2>
 
-  <!-- 브랜드 설명 -->
+  <!-- 브랜드 소개 -->
   <p>a brand born from nothing — for those who save themselves.</p>
 
   <!-- 연락처 -->
