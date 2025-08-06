@@ -1,4 +1,4 @@
-nogodtosaveme
+
 No one wants to save you
 
 <title>no god to save me</title> <style> body { margin: 0; padding: 0; background-color: #000; color: #fff; font-family: 'Helvetica Neue', sans-serif; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; text-align: center; }
