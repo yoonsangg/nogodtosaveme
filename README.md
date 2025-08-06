@@ -62,7 +62,7 @@
       top: 0; left: 0;
       width: 100vw; height: 100vh;
       pointer-events: none;
-      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOAAoH+DwADpwIDt7Lq3AAAAABJRUxBUUVOgg==');
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOAAoH+DwADpwIDt7Lq3AAAAABJRUVOgg==');
       background-blend-mode: overlay;
       filter: url(#noiseFilter);
       opacity: 0.03;
@@ -93,87 +93,50 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* h1: Anton 폰트 적용 및 디스트로이드 텍스처 효과 */
+    /* h1: Anton 폰트 적용, 글리치 효과 간소화 */
     h1 {
-      font-family: 'Anton', sans-serif; /* 폰트 변경! */
+      font-family: 'Anton', sans-serif;
       font-size: 4.5em;
       letter-spacing: 5px;
       margin-bottom: 0.4em;
       font-weight: 400; /* Anton은 보통 400 굵기만 지원합니다. */
       text-transform: uppercase;
-      color: #fff; /* background-clip 때문에 투명해지지만 기본 색은 흰색 */
+      color: #FFFFFF; /* 텍스트 자체를 선명한 흰색으로 표시 */
       position: relative;
-      animation: glitch 2s infinite;
-
-      /* 디스트로이드 질감 오버레이를 위한 속성 */
-      background: url('https://raw.githubusercontent.com/wrtn-community/wrtn/main/grunge-texture.png'); /* 거친 질감 이미지 */
-      background-size: cover; /* 텍스트 크기에 맞춰 질감 조정 */
-      -webkit-background-clip: text; /* 텍스트 모양으로 배경 자르기 (WebKit 브라우저용) */
-      background-clip: text; /* 텍스트 모양으로 배경 자르기 */
-      -webkit-text-fill-color: transparent; /* 텍스트 채우기 색상을 투명하게 (WebKit 브라우저용) */
-      text-fill-color: transparent; /* 텍스트 채우기 색상을 투명하게 */
-      filter: drop-shadow(1px 1px 0 #d12e2e) drop-shadow(-1px -1px 0 #a0a0a0); /* 텍스트 그림자 효과 (glitch와 조화) */
+      animation: simplifiedGlitch 4s infinite alternate; /* 새로운 애니메이션 적용 */
+      /* 이전에 텍스트에 직접 적용되었던 질감 오버레이 속성들은 제거 */
+      /* background, background-size, -webkit-background-clip, background-clip, -webkit-text-fill-color, text-fill-color 제거됨 */
     }
 
-    h1::before,
-    h1::after {
-      content: attr(data-text);
-      position: absolute;
-      left: 0;
-      width: 100%;
-      overflow: hidden;
-      clip: rect(0, 900px, 0, 0);
-      /* text-fill-color를 적용한 글씨체에 이펙트도 투명하게 보일 수 있으니,
-         글리치 복제본은 다시 흰색으로 채워줍니다. */
-      -webkit-text-fill-color: #fff;
-      text-fill-color: #fff;
-      filter: none; /* 드롭 쉐도우 중복 방지 */
-    }
+    /* h1::before, h1::after 및 관련 keyframes (glitchTop, glitchBottom) 완전히 제거 */
+    /* 더 이상 이 가상 요소들을 사용하지 않습니다. */
 
-    h1::before {
-      animation: glitchTop 2s infinite;
-      color: #f00; /* 빨간색 글리치 효과 */
-      z-index: -1;
-    }
-
-    h1::after {
-      animation: glitchBottom 2s infinite;
-      color: #0ff; /* 청록색 글리치 효과 */
-      z-index: -2;
-    }
-
-    @keyframes glitch {
-      0% {
-        filter: drop-shadow(1px 1px 0 #d12e2e) drop-shadow(-1px -1px 0 #a0a0a0);
+    @keyframes simplifiedGlitch {
+      0%, 100% {
+        text-shadow: none; /* 기본 상태에서는 그림자 없음 */
+        transform: translate(0, 0);
+      }
+      5%, 15% { /* 불규칙한 순간에만 짧게 글리치 효과 */
+        text-shadow: 0.5px 0.5px #d12e2e, -0.5px -0.5px #a0a0a0; /* 미세한 그림자 */
+        transform: translate(0.5px, 0.5px); /* 미세한 위치 이동 */
+      }
+      10% {
+        text-shadow: 0.5px -0.5px #d12e2e, -0.5px 0.5px #a0a0a0;
+        transform: translate(-0.5px, 0.5px);
       }
       20% {
-        filter: drop-shadow(1px -1px 0 #d12e2e) drop-shadow(-1px 1px 0 #a0a0a0);
+        text-shadow: 0 0 1px rgba(255, 255, 255, 0.8); /* 약한 흐림 효과 */
+        transform: translate(0, 0);
+      }
+      30%, 35% {
+        text-shadow: 0.2px 0.2px #d12e2e; /* 아주 미세한 그림자 */
+        transform: translate(0.2px, -0.2px);
       }
       40% {
-        filter: drop-shadow(-1px 1px 0 #d12e2e) drop-shadow(1px -1px 0 #a0a0a0);
+        text-shadow: none;
+        transform: translate(0, 0);
       }
-      60% {
-        filter: drop-shadow(-1px -1px 0 #d12e2e) drop-shadow(1px 1px 0 #a0a0a0);
-      }
-      80%, 100% {
-        filter: drop-shadow(1px 1px 0 #d12e2e) drop-shadow(-1px -1px 0 #a0a0a0);
-      }
-    }
-
-    @keyframes glitchTop {
-      0% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
-      20% { clip: rect(0, 9999px, 10px, 0); transform: translate(-2px, -2px); }
-      40% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
-      60% { clip: rect(0, 9999px, 10px, 0); transform: translate(-2px, 2px); }
-      80%, 100% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
-    }
-
-    @keyframes glitchBottom {
-      0% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
-      20% { clip: rect(10px, 9999px, 20px, 0); transform: translate(2px, 2px); }
-      40% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
-      60% { clip: rect(10px, 9999px, 20px, 0); transform: translate(2px, -2px); }
-      80%, 100% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
+      /* 나머지 시간은 그림자나 변형 없이 선명하게 표시 */
     }
 
     p.tagline {
@@ -224,7 +187,7 @@
 
 <body>
   <main>
-    <h1 data-text="NO GOD TO SAVE ME">NO GOD TO SAVE ME</h1>
+    <h1>no god to save me</h1>
     <p class="tagline">a brand born from nothing — for those who save themselves.</p>
 
     <div class="contact">
