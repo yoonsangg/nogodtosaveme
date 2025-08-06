@@ -21,31 +21,25 @@
 
     header {
       padding: 40px 20px;
-      border-bottom: 1px solid #333;
       max-width: 800px;
       width: 100%;
     }
 
     .slogan {
-      font-size: 1.2em;
+      font-size: 1.4em;
       font-style: italic;
-      color: #fff;
+      margin-bottom: 20px;
     }
 
     .description {
-      margin-top: 20px;
       font-size: 1.1em;
-      color: #fff;
       line-height: 1.6;
       max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto 30px auto;
     }
 
     .contact {
-      margin-top: 30px;
       font-size: 0.9em;
-      color: #fff;
     }
 
     .contact a {
@@ -59,11 +53,12 @@
 
     @media (max-width: 768px) {
       .slogan {
-        font-size: 1em;
+        font-size: 1.1em;
       }
 
       .description {
         font-size: 1em;
+        padding: 0 1em;
       }
     }
   </style>
@@ -78,7 +73,7 @@
 
     <div class="contact">
       contact: <a href="mailto:dbstkdfuf333@naver.com">dbstkdfuf333@naver.com</a><br>
-      <p><a href="https://instagram.com/no_god_to_save_me" target="_blank">Instagram</a></p>
+      <a href="https://instagram.com/no_god_to_save_me" target="_blank">Instagram</a>
     </div>
   </header>
 
