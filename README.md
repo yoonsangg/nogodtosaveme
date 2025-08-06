@@ -1,4 +1,3 @@
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -153,4 +152,93 @@
         filter: drop-shadow(-1px 1px 0 #d12e2e) drop-shadow(1px -1px 0 #a0a0a0);
       }
       60% {
-        filter:
+        filter: drop-shadow(-1px -1px 0 #d12e2e) drop-shadow(1px 1px 0 #a0a0a0);
+      }
+      80%, 100% {
+        filter: drop-shadow(1px 1px 0 #d12e2e) drop-shadow(-1px -1px 0 #a0a0a0);
+      }
+    }
+
+    @keyframes glitchTop {
+      0% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
+      20% { clip: rect(0, 9999px, 10px, 0); transform: translate(-2px, -2px); }
+      40% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
+      60% { clip: rect(0, 9999px, 10px, 0); transform: translate(-2px, 2px); }
+      80%, 100% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
+    }
+
+    @keyframes glitchBottom {
+      0% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
+      20% { clip: rect(10px, 9999px, 20px, 0); transform: translate(2px, 2px); }
+      40% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
+      60% { clip: rect(10px, 9999px, 20px, 0); transform: translate(2px, -2px); }
+      80%, 100% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
+    }
+
+    p.tagline {
+      font-size: 1.3em;
+      max-width: 700px;
+      margin: 0 auto 2em auto;
+      line-height: 1.6em;
+      color: #bbb;
+    }
+
+    .contact {
+      font-size: 0.95em;
+      color: #888;
+      margin-top: 4em;
+      align-self: flex-end;
+      margin-right: 5%;
+    }
+
+    .contact a {
+      color: #a0a0a0;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact a:hover {
+      color: #d12e2e;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5em;
+        letter-spacing: 3px;
+      }
+
+      p.tagline {
+        font-size: 1em;
+        padding: 0 1em;
+      }
+
+      .contact {
+        align-self: center;
+        margin-right: 0;
+        margin-top: 2em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1 data-text="NO GOD TO SAVE ME">NO GOD TO SAVE ME</h1>
+    <p class="tagline">a brand born from nothing — for those who save themselves.</p>
+
+    <div class="contact">
+      <p>contact: <a href="mailto:your@email.com">your@email.com</a></p>
+      <p><a href="https://instagram.com/no_god_to_save_me" target="_blank" rel="noopener noreferrer">Instagram</a></p>
+    </div>
+  </main>
+
+  <!-- SVG 필터 정의 -->
+  <svg style="position: absolute; width: 0; height: 0;">
+    <filter id="noiseFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" stitchTiles="stitch" />
+      <feColorMatrix type="saturate" values="0" />
+      <feBlend in="SourceGraphic" in2="noise" mode="multiply" />
+    </filter>
+  </svg>
+</body>
+</html>
