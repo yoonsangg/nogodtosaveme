@@ -99,16 +99,13 @@
     }
 
     h1 {
-      color: #FFFFFF; /* 🎉 여기가 변경된 부분입니다! h1의 텍스트 색상을 순수 흰색으로 지정 */
+      color: #FFFFFF; /* 🎉 글씨색을 순수 흰색으로 확실히 지정합니다. */
       font-size: 4.5em; /* 폰트 변경에 따라 크기 조절 */
       letter-spacing: 5px; /* 더 강조된 자간 */
       margin-bottom: 0.4em;
       font-weight: 700; /* Bebas Neue는 단일 굵기지만, 시각적으로 강렬함 */
       text-transform: uppercase;
-      /* text-shadow는 제거하거나 흰색 그림자로 변경할 수 있습니다.
-         파란색처럼 보이는 원인이었다면 이 줄을 제거하거나 아래처럼 변경해보세요 */
-      /* text-shadow: 2px 2px #FFFFFF, -2px -2px #FFFFFF; */ /* 흰색 그림자로 변경 예시 */
-      /* 그로테스크한 느낌을 살리려면, 살짝 번지거나 퍼지는 느낌의 그림자 효과를 주는 것도 좋습니다. */
+      /* 여기에서 text-shadow 속성을 완전히 제거했습니다! */
     }
 
     p.tagline {
