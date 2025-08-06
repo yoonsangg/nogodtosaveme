@@ -99,7 +99,7 @@
 
     <div class="contact">
       contact: <a href="mailto:dbstkdfuf333@naver.com">dbstkdfuf333@naver.com</a><br>
-      <a href="https://instagram.com/" target="_blank" rel="no_god_to_save_me">Instagram</a>
+       <p><a href="https://instagram.com/yourbrand" target="_blank">Instagram</a></p>
     </div>
   </header>
 
