@@ -31,7 +31,13 @@
       letter-spacing: 4px;
       font-weight: bold;
       text-transform: uppercase;
-      color: #ffffff !important; /* ← 확실하게 흰색으로 지정 */
+      color: #fff;
+    }
+
+    /* 만약 <a> 태그로 타이틀을 감싸고 싶다면 이 스타일을 추가하세요 */
+    .brand-name a {
+      color: #fff !important;
+      text-decoration: none;
     }
 
     .slogan {
@@ -63,7 +69,6 @@
     }
 
     .contact a:hover {
-      color: #fff;
       text-decoration: underline;
     }
 
@@ -85,6 +90,7 @@
 <body>
 
   <header>
+    <!-- 확실히 흰색으로 보이게 하기 위해 <a> 제거 -->
     <div class="brand-name">no god to save me</div>
     <div class="slogan">Hope is a lie we tell ourselves</div>
     <div class="description">
