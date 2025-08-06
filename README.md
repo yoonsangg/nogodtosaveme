@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="No god to save me — A brand born from nothing for those who save themselves." />
-  <meta property="og:title" content="no god to save me" />
+  <meta property="og:title" content="" />
   <meta property="og:description" content="A brand born from nothing — for those who save themselves." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://yourbrand.com" />
