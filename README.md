@@ -10,7 +10,7 @@
   <meta property="og:url" content="https://yourbrand.com" />
   <meta property="og:image" content="https://yourbrand.com/og-image.jpg" />
 
-  <title>no god to save me</title>
+
 
   <!-- Google Font: Bebas Neue (더 강렬하고 무게감 있는 느낌) -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
