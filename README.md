@@ -8,11 +8,8 @@
     body {
       margin: 0;
       padding: 0;
-      background-image: url('제목 없음-1.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      filter: grayscale(100%);
+      background-color: #000;
+      color: #fff;
       font-family: 'Helvetica Neue', sans-serif;
       display: flex;
       flex-direction: column;
@@ -20,14 +17,25 @@
       align-items: center;
       min-height: 100vh;
       text-align: center;
-      color: #fff;
+    }
+
+    img.logo {
+      width: 120px;
+      margin-bottom: 1em;
     }
 
     h1 {
       font-size: 3em;
       letter-spacing: 2px;
-      margin-bottom: 0.5em;
-      text-shadow: 0 0 10px #000;
+      margin-bottom: 0.2em;
+    }
+
+    h2 {
+      font-size: 1.2em;
+      font-weight: normal;
+      color: #999;
+      margin-bottom: 1em;
+      font-style: italic;
     }
 
     p {
@@ -36,12 +44,11 @@
       margin: 0 auto 2em auto;
       line-height: 1.6em;
       color: #ccc;
-      text-shadow: 0 0 5px #000;
     }
 
     .contact {
       font-size: 0.9em;
-      color: #aaa;
+      color: #888;
     }
 
     a {
@@ -52,11 +59,16 @@
     a:hover,
     a:focus {
       color: #fff;
+      outline: none;
     }
 
     @media (max-width: 768px) {
       h1 {
         font-size: 2.2em;
+      }
+
+      h2 {
+        font-size: 1em;
       }
 
       p {
@@ -67,9 +79,19 @@
   </style>
 </head>
 <body>
-  <h1>no god to save me</h1>
-  <p>a brand born from nothing — for those who save themselves.</p>
+  <!-- 로고 이미지 삽입 -->
+  <img src="logo.png" alt="no god to save me logo" class="logo">
   
+  <!-- 메인 타이틀 -->
+  <h1>no god to save me</h1>
+
+  <!-- 부제목 추가 -->
+  <h2>Hope is a lie we tell ourselves</h2>
+
+  <!-- 브랜드 설명 -->
+  <p>a brand born from nothing — for those who save themselves.</p>
+
+  <!-- 연락처 -->
   <div class="contact">
     <p>contact: <a href="mailto:dbstkdfuf333@naver.com">dbstkdfuf333@naver.com</a></p>
     <p><a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></p>
