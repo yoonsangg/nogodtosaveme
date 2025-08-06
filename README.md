@@ -1,82 +1,49 @@
-**<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NO GOD TO SAVE ME</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #000;
-      color: #fff;
-      font-family: 'Helvetica Neue', sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      text-align: center;
-    }
+nogodtosaveme
+No one wants to save you
 
-    header {
-      padding: 40px 20px;
-      max-width: 800px;
-      width: 100%;
-    }
+<title>no god to save me</title> <style> body { margin: 0; padding: 0; background-color: #000; color: #fff; font-family: 'Helvetica Neue', sans-serif; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; text-align: center; }
+h1 {
+  font-size: 3em;
+  letter-spacing: 2px;
+  margin-bottom: 0.5em;
+}
 
-    .slogan {
-      font-size: 1.4em;
-      font-style: italic;
-      margin-bottom: 20px;
-    }
+p {
+  font-size: 1.2em;
+  max-width: 600px;
+  margin: 0 auto 2em auto;
+  line-height: 1.6em;
+  color: #ccc;
+}
 
-    .description {
-      font-size: 1.1em;
-      line-height: 1.6;
-      max-width: 600px;
-      margin: 0 auto 30px auto;
-    }
+.contact {
+  font-size: 0.9em;
+  color: #888;
+}
 
-    .contact {
-      font-size: 0.9em;
-    }
+a {
+  color: #ccc;
+  text-decoration: none;
+}
 
-    .contact a {
-      color: #fff;
-      text-decoration: none;
-    }
+a:hover {
+  color: #fff;
+}
 
-    .contact a:hover {
-      text-decoration: underline;
-    }
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2em;
+  }
 
-    @media (max-width: 768px) {
-      .slogan {
-        font-size: 1.1em;
-      }
+  p {
+    font-size: 1em;
+    padding: 0 1em;
+  }
+}
+</style>
+no god to save me
+a brand born from nothing — for those who save themselves.
 
-      .description {
-        font-size: 1em;
-        padding: 0 1em;
-      }
-    }
-  </style>
-</head>
-<body>
+contact: dbstkdfuf333@naver.com
 
-  <header>
-    <div class="slogan">Hope is a lie we tell ourselves</div>
-    <div class="description">
-      a brand born from nothing — for those who save themselves.
-    </div>
-
-    <div class="contact">
-      contact: <a href="mailto:dbstkdfuf333@naver.com">dbstkdfuf333@naver.com</a><br>
-      <a href="https://instagram.com/no_god_to_save_me" target="_blank">Instagram</a>
-    </div>
-  </header>
-
-</body>
-</html>
-**
+Instagram
