@@ -31,7 +31,7 @@
       background-repeat: no-repeat;
       background-position: center center;
 
-      color: #f0f0f0; /* 순수한 흰색 대신 살짝 탁한 흰색으로 변경 */
+      color: #f0f0f0; /* 기본 텍스트 색상 */
       font-family: 'Bebas Neue', sans-serif; /* Bebas Neue 폰트 적용 */
       display: flex;
       flex-direction: column;
@@ -42,7 +42,7 @@
       overflow: hidden; /* 배경 애니메이션 시 스크롤바 방지 */
       padding: 2rem;
       position: relative; /* ::before, ::after 가상 요소를 위한 기준점 */
-      z-index: 0; /* z-index 설정으로 오버레이 컨트롤 용이 */
+      z-index: 0;
     }
 
     /* 배경 위에 반투명 검은색 오버레이 (텍스트 가독성 및 어두운 분위기 강조) */
@@ -53,26 +53,25 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.7); /* 70% 투명도의 검은색 오버레이 */
-      z-index: -1; /* 배경 이미지와 body 사이, 콘텐츠 아래에 위치 */
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: -1;
     }
 
     /* 전체 화면에 미세한 노이즈 효과 */
     body::after {
       content: '';
-      position: fixed; /* 전체 화면에 고정 */
+      position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      pointer-events: none; /* 클릭 이벤트 방지 */
-      /* 아주 작은 투명 PNG 이미지를 데이터 URI로 사용 (성능 최적화) */
+      pointer-events: none;
       background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOAAoH+DwADpwIDt7Lq3AAAAABJRU5ErkJggg==');
-      background-blend-mode: overlay; /* 오버레이 모드로 질감 적용 */
-      filter: url(#noiseFilter); /* SVG 필터 적용 */
-      opacity: 0.03; /* 아주 미묘하게 보일 정도로 투명도 조절 */
-      animation: grain 8s steps(10) infinite; /* 움직이는 노이즈 효과 */
-      z-index: 2; /* 콘텐츠 위에 있지만 투명도가 낮음 */
+      background-blend-mode: overlay;
+      filter: url(#noiseFilter);
+      opacity: 0.03;
+      animation: grain 8s steps(10) infinite;
+      z-index: 2;
     }
 
     @keyframes fadeIn {
@@ -94,18 +93,18 @@
     }
 
     main {
-      animation: fadeIn 1.5s ease-out; /* main 콘텐츠에 fadeIn 애니메이션 적용 */
-      z-index: 1; /* 콘텐츠가 오버레이 위로 오도록 */
+      animation: fadeIn 1.5s ease-out;
+      z-index: 1;
     }
 
     h1 {
-      color: #FFFFFF; /* 🎉 글씨색을 순수 흰색으로 확실히 지정합니다. */
-      font-size: 4.5em; /* 폰트 변경에 따라 크기 조절 */
-      letter-spacing: 5px; /* 더 강조된 자간 */
+      color: #FFFFFF; /* 흰색 글씨 */
+      font-size: 4.5em;
+      letter-spacing: 5px;
       margin-bottom: 0.4em;
-      font-weight: 700; /* Bebas Neue는 단일 굵기지만, 시각적으로 강렬함 */
+      font-weight: 700;
       text-transform: uppercase;
-      /* 여기에서 text-shadow 속성을 완전히 제거했습니다! */
+      /* text-shadow 제거하여 깔끔한 흰색 텍스트 */
     }
 
     p.tagline {
@@ -119,25 +118,25 @@
     .contact {
       font-size: 0.95em;
       color: #888;
-      margin-top: 4em; /* 위쪽 여백 증가 */
-      align-self: flex-end; /* 기본적으로 오른쪽에 붙도록 (flex-direction: column일 때) */
-      margin-right: 5%; /* 오른쪽 여백 추가 */
+      margin-top: 4em;
+      align-self: flex-end;
+      margin-right: 5%;
     }
 
     .contact a {
-      color: #a0a0a0; /* 링크 기본 색상: 약간 더 어둡게 */
+      color: #a0a0a0;
       text-decoration: none;
       transition: color 0.3s ease;
     }
 
     .contact a:hover {
-      color: #d12e2e; /* 호버 시 녹슨 붉은색 계열로 변경하여 악센트 효과 */
+      color: #d12e2e;
     }
 
     /* Responsive Design */
     @media (max-width: 768px) {
       h1 {
-        font-size: 2.5em; /* 모바일에서 폰트 크기 조절 */
+        font-size: 2.5em;
         letter-spacing: 3px;
       }
 
@@ -147,9 +146,9 @@
       }
 
       .contact {
-        align-self: center; /* 모바일에서는 다시 중앙 정렬 */
+        align-self: center;
         margin-right: 0;
-        margin-top: 2em; /* 모바일 여백 조절 */
+        margin-top: 2em;
       }
     }
   </style>
@@ -166,7 +165,7 @@
     </div>
   </main>
 
-  <!-- SVG 필터 정의 (미세한 노이즈 효과를 위한 코드) -->
+  <!-- SVG 필터 정의 (미세한 노이즈 효과) -->
   <svg style="position: absolute; width: 0; height: 0;">
     <filter id="noiseFilter">
       <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" stitchTiles="stitch" />
