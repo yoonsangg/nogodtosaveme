@@ -62,7 +62,7 @@
       top: 0; left: 0;
       width: 100vw; height: 100vh;
       pointer-events: none;
-      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOAAoH+DwADpwIDt7Lq3AAAAABJRU1BUUVOgg==');
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOAAoH+DwADpwIDt7Lq3AAAAABJRUxBUUVOgg==');
       background-blend-mode: overlay;
       filter: url(#noiseFilter);
       opacity: 0.03;
@@ -93,23 +93,26 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* h1: Anton 폰트 적용, 질감 제거 및 글리치 애니메이션 강도 조절 */
+    /* h1: Anton 폰트 적용 및 디스트로이드 텍스처 효과 */
     h1 {
-      font-family: 'Anton', sans-serif;
+      font-family: 'Anton', sans-serif; /* 폰트 변경! */
       font-size: 4.5em;
       letter-spacing: 5px;
       margin-bottom: 0.4em;
       font-weight: 400; /* Anton은 보통 400 굵기만 지원합니다. */
       text-transform: uppercase;
-      color: #FFFFFF; /* 이제 텍스트 자체는 선명한 흰색입니다. */
+      color: #fff; /* background-clip 때문에 투명해지지만 기본 색은 흰색 */
       position: relative;
-      animation: glitch 3s infinite; /* 애니메이션 속도 늦춤 */
-      /* 질감 오버레이 관련 속성 제거 */
-      /* background: url(...); */
-      /* -webkit-background-clip: text; */
-      /* background-clip: text; */
-      /* -webkit-text-fill-color: transparent; */
-      /* text-fill-color: transparent; */
+      animation: glitch 2s infinite;
+
+      /* 디스트로이드 질감 오버레이를 위한 속성 */
+      background: url('https://raw.githubusercontent.com/wrtn-community/wrtn/main/grunge-texture.png'); /* 거친 질감 이미지 */
+      background-size: cover; /* 텍스트 크기에 맞춰 질감 조정 */
+      -webkit-background-clip: text; /* 텍스트 모양으로 배경 자르기 (WebKit 브라우저용) */
+      background-clip: text; /* 텍스트 모양으로 배경 자르기 */
+      -webkit-text-fill-color: transparent; /* 텍스트 채우기 색상을 투명하게 (WebKit 브라우저용) */
+      text-fill-color: transparent; /* 텍스트 채우기 색상을 투명하게 */
+      filter: drop-shadow(1px 1px 0 #d12e2e) drop-shadow(-1px -1px 0 #a0a0a0); /* 텍스트 그림자 효과 (glitch와 조화) */
     }
 
     h1::before,
@@ -120,86 +123,57 @@
       width: 100%;
       overflow: hidden;
       clip: rect(0, 900px, 0, 0);
-      color: #fff; /* 글리치 복제본은 여전히 흰색 */
+      /* text-fill-color를 적용한 글씨체에 이펙트도 투명하게 보일 수 있으니,
+         글리치 복제본은 다시 흰색으로 채워줍니다. */
       -webkit-text-fill-color: #fff;
       text-fill-color: #fff;
-      filter: none; /* 그림자 중복 방지 */
+      filter: none; /* 드롭 쉐도우 중복 방지 */
     }
 
     h1::before {
-      animation: glitchTop 3s infinite; /* 애니메이션 속도 맞춤 */
+      animation: glitchTop 2s infinite;
       color: #f00; /* 빨간색 글리치 효과 */
       z-index: -1;
     }
 
     h1::after {
-      animation: glitchBottom 3s infinite; /* 애니메이션 속도 맞춤 */
+      animation: glitchBottom 2s infinite;
       color: #0ff; /* 청록색 글리치 효과 */
       z-index: -2;
     }
 
     @keyframes glitch {
       0% {
-        text-shadow: 1px 1px #d12e2e, -1px -1px #a0a0a0; /* 그림자 강도 조절 */
+        filter: drop-shadow(1px 1px 0 #d12e2e) drop-shadow(-1px -1px 0 #a0a0a0);
       }
       20% {
-        text-shadow: 1px -1px #d12e2e, -1px 1px #a0a0a0;
+        filter: drop-shadow(1px -1px 0 #d12e2e) drop-shadow(-1px 1px 0 #a0a0a0);
       }
       40% {
-        text-shadow: -1px 1px #d12e2e, 1px -1px #a0a0a0;
+        filter: drop-shadow(-1px 1px 0 #d12e2e) drop-shadow(1px -1px 0 #a0a0a0);
       }
       60% {
-        text-shadow: -1px -1px #d12e2e, 1px 1px #a0a0a0;
+        filter: drop-shadow(-1px -1px 0 #d12e2e) drop-shadow(1px 1px 0 #a0a0a0);
       }
       80%, 100% {
-        text-shadow: 1px 1px #d12e2e, -1px -1px #a0a0a0;
+        filter: drop-shadow(1px 1px 0 #d12e2e) drop-shadow(-1px -1px 0 #a0a0a0);
       }
     }
 
     @keyframes glitchTop {
-      0% {
-        clip: rect(0, 9999px, 0, 0);
-        transform: translate(0);
-      }
-      20% {
-        clip: rect(0, 9999px, 5px, 0); /* 잘림 범위 조절 */
-        transform: translate(-1px, -1px); /* 이동 범위 조절 */
-      }
-      40% {
-        clip: rect(0, 9999px, 0, 0);
-        transform: translate(0);
-      }
-      60% {
-        clip: rect(0, 9999px, 5px, 0);
-        transform: translate(-1px, 1px);
-      }
-      80%, 100% {
-        clip: rect(0, 9999px, 0, 0);
-        transform: translate(0);
-      }
+      0% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
+      20% { clip: rect(0, 9999px, 10px, 0); transform: translate(-2px, -2px); }
+      40% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
+      60% { clip: rect(0, 9999px, 10px, 0); transform: translate(-2px, 2px); }
+      80%, 100% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
     }
 
     @keyframes glitchBottom {
-      0% {
-        clip: rect(0, 9999px, 0, 0);
-        transform: translate(0);
-      }
-      20% {
-        clip: rect(5px, 9999px, 10px, 0); /* 잘림 범위 조절 */
-        transform: translate(1px, 1px); /* 이동 범위 조절 */
-      }
-      40% {
-        clip: rect(0, 9999px, 0, 0);
-        transform: translate(0);
-      }
-      60% {
-        clip: rect(5px, 9999px, 10px, 0);
-        transform: translate(1px, -1px);
-      }
-      80%, 100% {
-        clip: rect(0, 9999px, 0, 0);
-        transform: translate(0);
-      }
+      0% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
+      20% { clip: rect(10px, 9999px, 20px, 0); transform: translate(2px, 2px); }
+      40% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
+      60% { clip: rect(10px, 9999px, 20px, 0); transform: translate(2px, -2px); }
+      80%, 100% { clip: rect(0, 9999px, 0, 0); transform: translate(0); }
     }
 
     p.tagline {
