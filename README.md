@@ -31,7 +31,7 @@
       letter-spacing: 4px;
       font-weight: bold;
       text-transform: uppercase;
-      color: #fff;
+      color: #fff !important;
     }
 
     /* 만약 <a> 태그로 타이틀을 감싸고 싶다면 이 스타일을 추가하세요 */
