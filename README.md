@@ -8,8 +8,11 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #000;
-      color: #fff;
+      background-image: url('제목 없음-1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: grayscale(100%);
       font-family: 'Helvetica Neue', sans-serif;
       display: flex;
       flex-direction: column;
@@ -17,12 +20,14 @@
       align-items: center;
       min-height: 100vh;
       text-align: center;
+      color: #fff;
     }
 
     h1 {
       font-size: 3em;
       letter-spacing: 2px;
       margin-bottom: 0.5em;
+      text-shadow: 0 0 10px #000;
     }
 
     p {
@@ -31,11 +36,12 @@
       margin: 0 auto 2em auto;
       line-height: 1.6em;
       color: #ccc;
+      text-shadow: 0 0 5px #000;
     }
 
     .contact {
       font-size: 0.9em;
-      color: #888;
+      color: #aaa;
     }
 
     a {
@@ -46,7 +52,6 @@
     a:hover,
     a:focus {
       color: #fff;
-      outline: none;
     }
 
     @media (max-width: 768px) {
