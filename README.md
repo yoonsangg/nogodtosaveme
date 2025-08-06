@@ -31,7 +31,7 @@
       letter-spacing: 4px;
       font-weight: bold;
       text-transform: uppercase;
-      color: #fff;
+      color: #ffffff; /* ← 여기만 확실히 흰색 지정 */
     }
 
     .slogan {
