@@ -38,13 +38,13 @@
       margin-top: 10px;
       font-size: 1.1em;
       font-style: italic;
-      color: #888;
+      color: #fff;
     }
 
     .description {
       margin-top: 20px;
       font-size: 1.1em;
-      color: #ccc;
+      color: #fff;
       line-height: 1.6;
       max-width: 600px;
       margin-left: auto;
@@ -54,16 +54,17 @@
     .contact {
       margin-top: 30px;
       font-size: 0.9em;
-      color: #888;
+      color: #fff;
     }
 
     .contact a {
-      color: #aaa;
+      color: #fff;
       text-decoration: none;
     }
 
     .contact a:hover {
       color: #fff;
+      text-decoration: underline;
     }
 
     @media (max-width: 768px) {
