@@ -12,11 +12,11 @@
 
   <title>no god to save me</title>
 
-  <!-- Google Font: Bebas Neue (더 강렬하고 무게감 있는 느낌) -->
+  <!-- Google Font: Bebas Neue -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
   <style>
-    /* === Reset & Base === */
+    /* 기존 스타일 유지 */
     * {
       margin: 0;
       padding: 0;
@@ -24,47 +24,40 @@
     }
 
     body {
-      background-color: #000; /* 기본 배경은 검은색 */
-      /* 배경 질감 이미지 (예시: 거친 콘크리트 질감) - 실제 경로로 변경해주세요 */
+      background-color: #000;
       background-image: url('https://raw.githubusercontent.com/wrtn-community/wrtn/main/concrete-texture.webp');
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
 
-      color: #f0f0f0; /* 기본 텍스트 색상 */
-      font-family: 'Bebas Neue', sans-serif; /* Bebas Neue 폰트 적용 */
+      color: #f0f0f0;
+      font-family: 'Bebas Neue', sans-serif;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
       text-align: center;
-      overflow: hidden; /* 배경 애니메이션 시 스크롤바 방지 */
+      overflow: hidden;
       padding: 2rem;
-      position: relative; /* ::before, ::after 가상 요소를 위한 기준점 */
+      position: relative;
       z-index: 0;
     }
 
-    /* 배경 위에 반투명 검은색 오버레이 (텍스트 가독성 및 어두운 분위기 강조) */
     body::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background-color: rgba(0, 0, 0, 0.7);
       z-index: -1;
     }
 
-    /* 전체 화면에 미세한 노이즈 효과 */
     body::after {
       content: '';
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
       pointer-events: none;
       background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOAAoH+DwADpwIDt7Lq3AAAAABJRU5ErkJggg==');
       background-blend-mode: overlay;
@@ -98,13 +91,12 @@
     }
 
     h1 {
-      color: #FFFFFF; /* 흰색 글씨 */
+      color: #FFFFFF;
       font-size: 4.5em;
       letter-spacing: 5px;
       margin-bottom: 0.4em;
       font-weight: 700;
       text-transform: uppercase;
-      /* text-shadow 제거하여 깔끔한 흰색 텍스트 */
     }
 
     p.tagline {
@@ -133,7 +125,11 @@
       color: #d12e2e;
     }
 
-    /* Responsive Design */
+    /* 파란색 글씨 숨기기 */
+    .container-lg.markdown-body {
+      display: none !important;
+    }
+
     @media (max-width: 768px) {
       h1 {
         font-size: 2.5em;
@@ -155,6 +151,8 @@
 </head>
 
 <body>
+  <!-- 파란색 글씨가 포함된 div는 CSS로 숨김 처리되어 화면에 보이지 않습니다 -->
+
   <main>
     <h1>no god to save me</h1>
     <p class="tagline">a brand born from nothing — for those who save themselves.</p>
@@ -165,7 +163,7 @@
     </div>
   </main>
 
-  <!-- SVG 필터 정의 (미세한 노이즈 효과) -->
+  <!-- SVG 필터 정의 -->
   <svg style="position: absolute; width: 0; height: 0;">
     <filter id="noiseFilter">
       <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" stitchTiles="stitch" />
