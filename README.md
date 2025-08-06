@@ -21,6 +21,7 @@
 
     header {
       padding: 40px 20px;
+      border-bottom: 1px solid #333;
       max-width: 800px;
       width: 100%;
     }
@@ -62,6 +63,7 @@
     }
 
     .contact a:hover {
+      color: #fff;
       text-decoration: underline;
     }
 
@@ -83,7 +85,7 @@
 <body>
 
   <header>
-    <div class="brand-name">NO GOD TO SAVE ME</div>
+    <div class="brand-name">no god to save me</div>
     <div class="slogan">Hope is a lie we tell ourselves</div>
     <div class="description">
       a brand born from nothing — for those who save themselves.
