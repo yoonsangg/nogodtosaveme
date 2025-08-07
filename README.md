@@ -292,7 +292,7 @@
 <body>
   <main>
     <h1 data-text="NO GOD TO SAVE ME">NO GOD TO SAVE ME</h1>
-    <p class="tagline">a brand born from nothing — for those who save themselves.</p>
+    <p class="tagline">A BRAND BORN FROM NOTHING — FOR THOSE WHO SAVE THEMSELVES.</p>
 
     <div class="contact">
       <p>contact: <a href="mailto:your@email.com">your@email.com</a></p>
