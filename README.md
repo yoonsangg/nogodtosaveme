@@ -295,7 +295,7 @@
     <p class="tagline">A BRAND BORN FROM NOTHING — FOR THOSE WHO SAVE THEMSELVES.</p>
 
     <div class="contact">
-      <p>contact: <a href="mailto:your@email.com">your@email.com</a></p>
+      <p>contact: <a href="dbstkdfuf333@naver.com">dbstkdfuf333@naver.com</a></p>
       <p><a href="https://instagram.com/no_god_to_save_me" target="_blank" rel="noopener noreferrer">Instagram</a></p>
     </div>
   </main>
